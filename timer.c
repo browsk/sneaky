@@ -5,7 +5,7 @@
 void timer_init()
 {
 	TCCR0A = 1 << WGM01;
-	TCCR0B = (1 << CS01) | (1 << CS00);
+	TCCR0B = (1 << CS02) | (1 << CS00);
 
 	TIFR0 = (1 << OCF0A);
 	OCR0A = 250;
@@ -17,6 +17,7 @@ void timer_init()
 
 unsigned count = 0;
 
+/*
 ISR(TIMER0_COMPA_vect)
 {
 	TIFR0 = (1 << OCF0A);
@@ -28,3 +29,4 @@ ISR(TIMER0_COMPA_vect)
 		uart_write_sync("!"); 
 	}
 }
+*/

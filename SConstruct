@@ -7,7 +7,7 @@ mcu = 'atmega328p'
 if len(COMMAND_LINE_TARGETS):
   Target = COMMAND_LINE_TARGETS[0]
 else:
-  Target = ''
+  Target = 'test'
  
 # Optimization level, can be [0, 1, 2, 3, s].
 opt = "2"
@@ -17,8 +17,10 @@ env['CPPDEFINES'] = {'F_CPU' : '16000000UL'}
 
 env.Append(CCFLAGS = "-Wall")
  
+sources = Glob('*.c')
+sources += Glob('*.S')
 # Make elf
-env.Program(Target+'.elf', [Glob('*.c')])
+env.Program(Target+'.elf', [sources])
 #env.Program(Target+'.elf', [Glob('Library/*/*.c'), 'Tests/'+Target+'.c'])
  
 # Make hex

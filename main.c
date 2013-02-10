@@ -26,7 +26,7 @@ int main (void)
   PORTB &= ~_BV(PORTB5);
   _delay_ms(delay_val);
 
-  uart_write_sync("hello");
+//  uart_write_sync("hello");
  }
 
 
